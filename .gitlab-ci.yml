@@ -1,0 +1,74 @@
+# This file is a template, and might need editing before it works on your project.
+# This template has been DEPRECATED. Consider using Auto DevOps instead:
+# https://docs.gitlab.com/ee/topics/autodevops
+
+# Explanation on the scripts:
+# https://gitlab.com/gitlab-examples/kubernetes-deploy/blob/master/README.md
+image: registry.gitlab.com/gitlab-examples/kubernetes-deploy
+
+variables:
+  # Application deployment domain
+  KUBE_DOMAIN: i2p.online
+
+stages:
+  - build
+  - test
+  - review
+  - staging
+  - production
+  - cleanup
+  - canary
+  - chatops
+  
+  
+hello-world:
+  stage: chatops
+  only: [chat]
+  script:
+    - echo "Hello World."
+
+build:
+  stage: build
+  script:
+    - echo "Built from GitHub Files."
+
+
+sast:
+  stage: test 
+  script:
+    - exit 0
+
+rspec-mysql-unit-test:
+  stage: test
+  script:
+    - exit 0
+
+rspec-postgres-unit-test:
+  stage: test
+  script:
+    - exit 0
+    
+coveralls-integration-test:
+  stage: test
+  script:
+    - exit 0
+
+simplecov-code-coverage:
+  stage: test
+  script:
+    - exit 0
+
+cucumber-mysql-acceptance-test:
+  stage: test
+  script:
+    - exit 0
+
+cucumber-postgres-acceptance-test:
+  stage: test
+  script:
+    - exit 0
+
+rubocop-static-analysis-test:
+  stage: test
+  script:
+    - exit 0
